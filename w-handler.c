@@ -13,28 +13,27 @@
 int handle_write_char(char c, char buffer[],
 		int flages, int width, int precision, int size)
 {
+	char padd = ' ';
+	int i = 0;
+	int write_count = 1;
+	int padding_count = width - 1;
+	int buffer_index = BUFSIZ - 2;
+
 	UNUSED(precision);
 	UNUSED(size);
 
-	char padd = ' ';
-	int i = 0;
-
-	if (flags & F_SERO)
+	if (flages & F_ZERO)
 		padd = '0';
 	buffer[i++] = c;
 	buffer[i] = '\0';
 
-	int write_count = 1;
 
 	if (width > 1)
 
-		int padding_count = width - 1;
-		int buffer_index = BUFF_SIZE - 2;
+	for (i = 0; i < padding_count; i++)
+		buffer[buffer_index--] = padd;
 
-		for (i = 0; i < padding_count; i++)
-			buffer[buffer_index--] = padd;
-
-	if (flags & F_MINUS)
+	if (flages & F_MINUS)
 
 	write_count += write(1, &buffer[0], 1);
 	write_count += write(1,
