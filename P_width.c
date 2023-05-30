@@ -9,10 +9,10 @@
 */
 int get_width(const char *format, int *i, va_list list)
 {
-	int curr_i = *i + 1;
+	int curr_i;
 	int width = 0;
 
-	while (format[curr_i] != '\0')
+	while (curr_i = *i + 1; format[curr_i] != '\0')
 	{
 		if (is_digit(format[curr_i]))
 		{
