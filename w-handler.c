@@ -96,6 +96,8 @@ int write_num(int ind, char buffer[], int flags,
 		int width, int prec, int length, char padd, char extra_c)
 {
 	int i, padd_start = 1;
+	int write1;
+	int write2;
 
 	if (prec == 0 && ind == BUFSIZ - 2 && buffer[ind] == '0' && width == 0)
 		return (0);
@@ -136,8 +138,8 @@ int write_num(int ind, char buffer[], int flags,
 			if (extra_c)
 			buffer[--padd_start] = extra_c;
 
-		int write1 = write(1, &buffer[padd_start], i - padd_start);
-		int write2 = write(1, &buffer[ind], length - (1 - padd_start));
+		write1 = write(1, &buffer[padd_start], i - padd_start);
+		write2 = write(1, &buffer[ind], length - (1 - padd_start));
 
 		return (write1 + write2);
 
@@ -212,6 +214,8 @@ int write_pointer(char buffer[], int ind, int length,
 	int width, int flags, char padd, char extra_c, int padd_start)
 {
 	int i;
+	int result1;
+	int result2;
 
 	if (width > length)
 	{
@@ -226,23 +230,23 @@ int write_pointer(char buffer[], int ind, int length,
 		buffer[--ind] = '0';
 	}
 	if (extra_c)
+	{
 		buffer[--ind] = extra_c;
-
-		result1 = write(1, &buffer[ind], length);
-		result2 = write(1, &buffer[3], i - 3);
+	result1 = write(1, &buffer[ind], length);
+	result2 = write(1, &buffer[3], i - 3);
 
 	return (result1 + result2);
-
+	}
 	else if (!(flags & F_MINUS) && (padd == ' '))
-
+	{
 	buffer[--ind] = 'x';
 	buffer[--ind] = '0';
-
+	}
 	if (extra_c)
+	{
 		buffer[--ind] = extra_c;
-
-		result1 = write(1, &buffer[3], i - 3);
-		result2 = write(1, &buffer[ind], length);
+	result1 = write(1, &buffer[3], i - 3);
+	result2 = write(1, &buffer[ind], length);
 
 	return (result1 + result2);
 
@@ -254,8 +258,8 @@ int write_pointer(char buffer[], int ind, int length,
 	buffer[1] = '0';
 	buffer[2] = 'x';
 
-	int result1 = write(1, &buffer[padd_start], i - padd_start);
-	int result2 = write(1, &buffer[ind], length - (1 - padd_start) - 2);
+	result1 = write(1, &buffer[padd_start], i - padd_start);
+	result2 = write(1, &buffer[ind], length - (1 - padd_start) - 2);
 
 	return (result1 + result2);
 
@@ -265,5 +269,5 @@ int write_pointer(char buffer[], int ind, int length,
 	if (extra_c)
 		buffer[--ind] = extra_c;
 
-	return (write(1, &buffer[ind], BUFF_SIZE - ind - i));
+	return (write(1, &buffer[ind], BUFSIZ - ind - i));
 }
