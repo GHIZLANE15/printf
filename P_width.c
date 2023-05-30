@@ -9,7 +9,7 @@
 */
 int get_width(const char *format, int *i, va_list list)
 {
-	int curr_i = *i + i;
+	int curr_i = *i + 1;
 	int width = 0;
 
 	while (format[curr_i] != '\0')
