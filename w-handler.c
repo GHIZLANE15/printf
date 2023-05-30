@@ -34,16 +34,14 @@ int handle_write_char(char c, char buffer[],
 		buffer[buffer_index--] = padd;
 
 	if (flages & F_MINUS)
-
-	write_count += write(1, &buffer[0], 1);
-	write_count += write(1,
+		write_count += write(1, &buffer[0], 1);
+		write_count += write(1,
 		&buffer[BUFSIZ - padding_count - 1], padding_count);
-
 	else
 
-	write_count += write(1,
+		write_count += write(1,
 		&buffer[BUFF_SIZE - padding_count - 1], padding_count);
-	write_count += write(1, &buffer[0], 1);
+		write_count += write(1, &buffer[0], 1);
 
 
 	return (write_count);
