@@ -110,8 +110,8 @@ int print_int(va_list types, char buffer[],
 
 	if (n == 0)
 	buffer[i--] = '0';
-	buffer[BUFF_SIZE - 1] = '\0';
-	num = (unsigned long int n)
+	buffer[BUFSIZ - 1] = '\0';
+	num = (unsigned long int) n;
 
 	if (n == 0)
 	{
@@ -127,7 +127,7 @@ int print_int(va_list types, char buffer[],
 	return (write_number(is_negative, x, buffer, flags, width, precision, size));
 }
 /**
-*print char - Prints an unsigned number
+*print_binary - Prints an unsigned number
 *@flags: calculates active flags
 *@buffer: Buffer to handle
 *@width: width
@@ -136,7 +136,7 @@ int print_int(va_list types, char buffer[],
 *@size: specific size
 *Return: Number of chars printed
 */
-int print_char(va_list types, char buffer[],
+int print_binary(va_list types, char buffer[],
 	int flags, int width, int precision, int size)
 {
 	unsigned int j, g, x, sum;
@@ -154,7 +154,7 @@ int print_char(va_list types, char buffer[],
 	a[0] = j / g;
 	for (x = 1; x < 32; x++)
 	{
-		m /= 2;
+		g /= 2;
 		a[x] = (j / g) % 2;
 	}
 		for (x = 0, sum = 0, count = 0; x < 32; x++)
