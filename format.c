@@ -15,10 +15,10 @@ int print_char(va_list types, char buffer[],
 {
 	char c = va_arg(types, int);
 
-	return (handl_write_char(c, buffer, flags, width, precision, size));
+	return (handle_write_char(c, buffer, flags, width, precision, size));
 }
 /**
-*print_char - Prints a charachter
+*print-string - Prints a charachter
 *@flags: calculates active flags
 *@buffer: Buffer to handle
 *@width: width
@@ -27,10 +27,10 @@ int print_char(va_list types, char buffer[],
 *@size: specific size
 *Return: Number of chars printed
 */
-int print_char(va_list types, char buffer[],
+int print_string(va_list types, char buffer[],
 		int flags, int width, int precision, int size)
 {
-	int_length = 0, x;
+	int length = 0, i;
 	char *str = va_arg(types, char *);
 
 	UNUSED(buffer);
@@ -44,7 +44,7 @@ int print_char(va_list types, char buffer[],
 		if (precision >= 6)
 			str = "     ";
 	}
-	while (str[lenght] != '\0')
+	while (str[length] != '\0')
 		lenght++;
 	if (precision >= 0 && precision < length)
 		length = precision;
@@ -53,7 +53,7 @@ int print_char(va_list types, char buffer[],
 		if (flags & F_MINUS)
 	{
 		write(1, &str[0], length);
-		for (1 = width - length; x > 0. x--)
+		for (1 = width - length; i > 0, i--)
 			write(1, " ", 1);
 		return (width);
 	}
