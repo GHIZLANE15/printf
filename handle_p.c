@@ -19,8 +19,8 @@ int handle_print(const char *fmt, int *ind, va_list list, char buffer[],
 	int unknow_len = 0;
 	int i;
 
-	printed_char = -1;
-	fmt_t; fmt_types[] = {
+	print_char = -1;
+	fmt_t; fmt_types[ ] = {
 	{'c', print_char}, {'s', print_string}, {'%', print_percent},
 	{'i', print_int}, {'d', print_int}, {'b', print_binary},
 	{'u', print_unsigned}, {'o', print_octal}, {'x', print_hexadecimal},
@@ -53,5 +53,5 @@ int handle_print(const char *fmt, int *ind, va_list list, char buffer[],
 		unknow_len += write(1, &fmt[*ind], 1);
 		return (unknow_len);
 	}
-	return (printed_chars);
+	return (print_char);
 }
