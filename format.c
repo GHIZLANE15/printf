@@ -52,7 +52,7 @@ int print_string(va_list types, char buffer[],
 	{
 		if (flags & F_MINUS)
 		write(1, &str[0], length);
-		for (1 = width - length; i > 0, i--)
+		for (i = width - length; i > 0; i--)
 			write(1, " ", 1);
 		return (width);
 	}
@@ -88,7 +88,7 @@ int print_percent(va_list types, char buffer[],
 	return (write(1, "%%", 1));
 }
 /**
-*print char - Prints int
+*print_int - Prints int
 *@flags: calculates active flags
 *@buffer: Buffer to handle
 *@width: width
@@ -97,10 +97,11 @@ int print_percent(va_list types, char buffer[],
 *@size: specific size
 *Return: Number of chars printed
 */
-int print_char(va_list types, char buffer[],
+int print_int(va_list types, char buffer[],
 	int flags, int width, int precision, int size)
 {
-	int x = BUFF_SIZE - 2;
+	int i;
+	int x = BUFSIZ - 2;
 	int is_negative = 0;
 	long int n = va_arg(types, long int);
 	unsigned long int num;
@@ -110,7 +111,7 @@ int print_char(va_list types, char buffer[],
 	if (n == 0)
 	buffer[i--] = '0';
 	buffer[BUFF_SIZE - 1] = '\0';
-	num = (insigned long int)n;
+	num = (unsigned long int n)
 
 	if (n == 0)
 	{
