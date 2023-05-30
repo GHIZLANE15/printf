@@ -45,13 +45,12 @@ int print_string(va_list types, char buffer[],
 			str = "     ";
 	}
 	while (str[length] != '\0')
-		lenght++;
+		length++;
 	if (precision >= 0 && precision < length)
 		length = precision;
 	if (width > length)
-	}
-		if (flags & F_MINUS)
 	{
+		if (flags & F_MINUS)
 		write(1, &str[0], length);
 		for (1 = width - length; i > 0, i--)
 			write(1, " ", 1);
@@ -59,17 +58,16 @@ int print_string(va_list types, char buffer[],
 	}
 	else
 	{
-		for (x = width - length; x > 0; x--)
+		for (i = width - length; i > 0; i--)
 			write(1, " ", 1);
 		write(1, &str[0], length);
 		return (width);
-	}
 	}
 	return (write(1, str, length));
 }
 
 /**
-*print char - Prints a precent sign
+*print_percent - Prints a percent sign
 *@flags: calculates active flags
 *@buffer: Buffer to handle
 *@width: width
@@ -78,7 +76,7 @@ int print_string(va_list types, char buffer[],
 *@size: specific size
 *Return: Number of chars printed
 */
-int print_char(va_list types, char buffer[],
+int print_percent(va_list types, char buffer[],
 	int flags, int width, int precision, int size)
 {
 	UNUSED(types);
