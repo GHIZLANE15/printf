@@ -100,8 +100,8 @@ int print_percent(va_list types, char buffer[],
 int print_int(va_list types, char buffer[],
 	int flags, int width, int precision, int size)
 {
-	int i;
-	int x = BUFSIZ - 2;
+
+	int i = BUFSIZ - 2;
 	int is_negative = 0;
 	long int n = va_arg(types, long int);
 	unsigned long int num;
@@ -124,7 +124,7 @@ int print_int(va_list types, char buffer[],
 		num /= 10;
 	}
 	i++;
-	return (write_number(is_negative, x, buffer, flags, width, precision, size));
+	return (write_number(is_negative, i, buffer, flags, width, precision, size));
 }
 /**
 *print_binary - Prints an unsigned number
