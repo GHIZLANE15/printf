@@ -226,8 +226,8 @@ int write_pointer(char buffer[], int ind, int length,
 	if (extra_c)
 		buffer[--ind] = extra_c;
 
-	int result1 = write(1, &buffer[ind], length);
-	int result2 = write(1, &buffer[3], i - 3);
+		result1 = write(1, &buffer[ind], length);
+		result2 = write(1, &buffer[3], i - 3);
 
 	return (result1 + result2);
 
@@ -239,8 +239,8 @@ int write_pointer(char buffer[], int ind, int length,
 	if (extra_c)
 		buffer[--ind] = extra_c;
 
-	int result1 = write(1, &buffer[3], i - 3);
-	int result2 = write(1, &buffer[ind], length);
+		result1 = write(1, &buffer[3], i - 3);
+		result2 = write(1, &buffer[ind], length);
 
 	return (result1 + result2);
 
