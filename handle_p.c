@@ -9,19 +9,13 @@
  * @flags: Active flags.
  * @width: Width specification.
  * @precision: Precision specification.
- * @size: Size specifier.
- *
-<<<<<<< HEAD
- * Return: Number  characters printed.
-=======
+ * @size: Size specifier
  * Return: 1 or 2;
->>>>>>> 1b2fe7457930526782adf12b4f30bf8d016da684
  */
 int handle_print(const char *fmt, int *ind, va_list list, char buffer[],
 		int flags, int width, int precision, int size)
 {
-	int i, unknow_len = 0;
-
+	int i, unknow_len = 0, printed_chars = -1;
 	fmt_t fmt_types[] = {
 	{'c', print_char},
 	{'s', print_string},
@@ -65,5 +59,5 @@ int handle_print(const char *fmt, int *ind, va_list list, char buffer[],
 		unknow_len += write(1, &fmt[*ind], 1);
 		return (unknow_len);
 	}
-	return (print_char(list, buffer, flags, width, precision, size));
+	return (print_char);
 }
