@@ -6,7 +6,7 @@
 #include <unistd.h>
 
 #define UNUSED(x) (void)(x)
-#define BUFF_SIZE 1024
+#define BUFF _SIZE 1024
 
 /* FLAGS */
 #define F_MINUS 1
@@ -29,7 +29,7 @@ struct fmt
 {
 	char fmt;
 	int (*fn)(va_list, char[], int, int, int, int);
-};
+}
 
 
 /**
