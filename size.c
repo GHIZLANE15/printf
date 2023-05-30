@@ -21,7 +21,10 @@ int get_size(const char *format, int *i)
 			size = S_SHORT;
 			break;
 	}
-	*i = (size != 0) ? curr_i : curr_i - 1;
+	if (size == 0)
+		*i = curr_i - 1;
+	else
+		*i = curr_i;
 
 	return (size);
 }
