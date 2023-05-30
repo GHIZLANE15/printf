@@ -37,7 +37,7 @@ int handle_write_char(char c, char buffer[],
 
 	write_count += write(1, &buffer[0], 1);
 	write_count += write(1,
-		&buffer[BUFF_SIZE - padding_count - 1], padding_count);
+		&buffer[BUFSIZ - padding_count - 1], padding_count);
 
 	else
 
