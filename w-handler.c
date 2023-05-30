@@ -249,7 +249,7 @@ int write_pointer(char buffer[], int ind, int length,
 	result2 = write(1, &buffer[ind], length);
 
 	return (result1 + result2);
-
+	}
 	else if (!(flags & F_MINUS) && (padd == ' '))
 
 	if (extra_c)
