@@ -40,7 +40,7 @@ int handle_write_char(char c, char buffer[],
 	else
 
 		write_count += write(1,
-		&buffer[BUFF_SIZE - padding_count - 1], padding_count);
+		&buffer[BUFSIZ - padding_count - 1], padding_count);
 		write_count += write(1, &buffer[0], 1);
 
 
@@ -52,12 +52,13 @@ int handle_write_char(char c, char buffer[],
 *@flages: calculates active flags
 *@width: width
 *@precision: precision specifier
+*@ind: char types
 *@size: size specifier
-*@c: char
+*@is_negative: list of args
 *Return: number of chars printed
 */
-int handle_write_char(char c, char buffer[],
-	int flages, int width, int precision, int size)
+int write_number(int is_negative, int ind, char buffer[],
+	int flags, int width, int precision, int size)
 {
 	char extra_ch = 0;
 	char padd = ' ';
