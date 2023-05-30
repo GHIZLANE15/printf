@@ -11,7 +11,11 @@
  * @precision: Precision specification.
  * @size: Size specifier.
  *
+<<<<<<< HEAD
+ * Return: Number  characters printed.
+=======
  * Return: 1 or 2;
+>>>>>>> 1b2fe7457930526782adf12b4f30bf8d016da684
  */
 int handle_print(const char *fmt, int *ind, va_list list, char buffer[],
 		int flags, int width, int precision, int size)
