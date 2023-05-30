@@ -11,7 +11,7 @@
 *Return: number of chars printed
 */
 int handle_write_char(char c, char buffer[],
-		int flages, int width, int precision, int size)
+		int flags, int width, int precision, int size)
 {
 	char padd = ' ';
 	int i = 0;
@@ -29,20 +29,22 @@ int handle_write_char(char c, char buffer[],
 
 
 	if (width > 1)
-
-	for (i = 0; i < padding_count; i++)
+	{
+		for (i = 0; i < padding_count; i++)
 		buffer[buffer_index--] = padd;
-
-	if (flages & F_MINUS)
+	}
+	if (flags & F_MINUS)
+	{
 		write_count += write(1, &buffer[0], 1);
 		write_count += write(1,
 		&buffer[BUFSIZ - padding_count - 1], padding_count);
+	}
 	else
-
+	{
 		write_count += write(1,
 		&buffer[BUFSIZ - padding_count - 1], padding_count);
 		write_count += write(1, &buffer[0], 1);
-
+	}
 
 	return (write_count);
 }
