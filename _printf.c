@@ -24,7 +24,7 @@ int _printf(const char *format, ...)
 		if (format[i] != '%')
 		{
 			buffer[buff_ind++] = format[i];
-			if (buff_ind == BUFSIZ)
+			if (buff_ind == BUFF_SIZE)
 			{
 				print_buffer(buffer, &buff_ind);
 			}

@@ -1,4 +1,5 @@
 #include "main.h"
+
 /**
 *get_precision - calculate with precision for printing
 *@format: Formatted string
@@ -37,4 +38,3 @@ int get_precision(const char *format, int *i, va_list list)
 		*i = curr_i - 1;
 		return (precision);
 }
-
