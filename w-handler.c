@@ -28,8 +28,8 @@ int handle_write_char(char c, char buffer[],
 	if (width > 1)
 	{
 		buffer[BUFF_SIZE] = '\0';
-		for (i = 0; i < padding_count; i++)
-			buffer[buffer_index--] = padd;
+		for (i = 0; i < width; i++)
+			buffer[BUFF_SIZE - 2] = padd;
 
 		if (flags & F_MINUS)
 			return (write(1, &buffer[0], 1)	+
@@ -39,8 +39,10 @@ int handle_write_char(char c, char buffer[],
 					write(1, &buffer[0], 1));
 	}
 
-	return (write_count);
+	return (write(1, &buffer[0], 1));
+
 }
+
 /**
 *write_number - Prints a string
 *@buffer: buffer array to handle print
@@ -232,7 +234,7 @@ int write_pointer(char buffer[], int ind, int length,
 			buffer[2] = 'x';
 
 			return (write(1, &buffer[padd_start], i - padd_start) +
-			write(1, &buffer[ind], length - (1 - padd_start) - 2);
+			write(1, &buffer[ind], length - (1 - padd_start) - 2));
 		}
 	}
 	buffer[--ind] = 'x';
